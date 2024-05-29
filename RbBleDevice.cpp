@@ -11,8 +11,6 @@ int8_t RbBleDevice::connectToDevice() {
     return -1;
   }
 
-  bleClient->setMTU(214);
-
   service = bleClient->getService(serviceUUID);
   if (service == nullptr) {
     return -2;
@@ -34,6 +32,7 @@ int8_t RbBleDevice::connectToDevice() {
   } else {
     return -5;
   }
+  bleClient->setMTU(214);
 }
 
 void RbBleDevice::write(const String& jsonCommand){
